@@ -1,0 +1,17 @@
+<!--
+  Generated template for the CharacterViewerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Character Viewer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>All Characters</h2>
+  <ul><li *ngFor="let chars of CharacterList">{{chars.Name}}: {{chars.Cliches}}</li></ul>
+  <button (click)="update()">Refresh List</button>
+</ion-content>

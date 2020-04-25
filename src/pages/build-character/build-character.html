@@ -1,0 +1,29 @@
+<!--
+  Generated template for the BuildCharacterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Build Character</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Character Creator</h2>
+  <div *ngIf="!done">
+    <p>Name: <input type="text" #name/></p>
+    <p *ngIf="nameError">Please name your character!</p>
+    <p>Available Dice: <input type="number" name="dice" value="{{Points}}" readonly/></p>
+    <p>Cliche Name: <input type="text" #cName> Assign Dice: <input type="number" #cDice min=1 max=4></p>
+    <p *ngIf="emptyError">Please fill out the name and dice!</p>
+    <p *ngIf="diceError">Sorry, you don't have that many dice remaining!</p>
+    <p *ngIf="diceError2">Woah there, cliches can only be between 1 and 4!</p>
+    <button *ngIf="Points>0" (click)="updateEvent(cDice.value, cName.value)">Update</button>
+    <button *ngIf="Points==0" (click)="submitCharacter(name.value)">Done</button>
+  </div>
+  <p *ngIf="done">{{name}}</p>
+  <ul><li *ngFor="let cliche of Cliches">{{cliche}}</li></ul>
+  <button *ngIf="done" (click)="reset()">New Character</button>
+</ion-content>

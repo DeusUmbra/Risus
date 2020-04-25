@@ -1,0 +1,22 @@
+<!--
+  Generated template for the DiceRollerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Dice Roller</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Dice Roller</h2>
+    <p>Cliche Dice: <input type="number" #lDice value=1 min=1 max=6> (Between 1 and 6)</p>
+    <p>Teammate Dice: <input type="number" #tDice value=0 min=0 max=50> (Between 0 and 50)</p>
+    <button (click)="roll(lDice.value, tDice.value)">Roll them bones!</button> <br/><br/>
+    <div id="dice">
+      <p *ngIf="Total > 0">Total: {{Total}}</p>
+      <ul><li *ngFor="let roll of Rolls"><img src="assets/imgs/{{roll}}" height="50px"></li></ul>
+    </div>
+</ion-content>
